@@ -2,30 +2,280 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Imane Bentaleb | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imane Bentaleb | Marketing Digital ESTS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#f8fafc',
+                            dark: '#0f172a',
+                            grey: '#64748b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+        }
+        .profile-frame {
+            position: relative;
+            z-index: 1;
+        }
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid #cbd5e1;
+            z-index: -1;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .dark .profile-frame::before {
+            border-color: #475569;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
 
-    <h1>Imane Bentaleb</h1>
-    <p>
-        Étudiante en <strong>Marketing Digital et Commercial</strong> <br>
-        École Supérieure de Technologie (EST)
-    </p>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="text-xl font-bold tracking-tighter flex items-center">
+                    <span class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 w-8 h-8 flex items-center justify-center rounded-lg mr-2">I</span>
+                    IMANE<span class="text-slate-500 font-light">BENTALEB</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                    <a href="#accueil" class="hover:text-slate-500 transition-colors">Accueil</a>
+                    <a href="#competences" class="hover:text-slate-500 transition-colors">Expertises</a>
+                    <a href="#projets" class="hover:text-slate-500 transition-colors">Projets</a>
+                    <a href="#contact" class="hover:text-slate-500 transition-colors font-bold">Contact</a>
+                </div>
 
-    <h2>Informations personnelles</h2>
-    <ul>
-        <li><strong>Ville :</strong> Salé, Maroc</li>
-        <li><strong>Téléphone :</strong> 0604 06 22 94</li>
-        <li><strong>Email :</strong> imanebentaleb29@gmail.com</li>
-    </ul>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:ring-2 ring-slate-300 dark:ring-slate-600 transition-all">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                    <button class="md:hidden p-2 text-slate-600 dark:text-slate-300" onclick="toggleMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 px-4 pt-2 pb-6 space-y-4 border-b border-slate-200 dark:border-slate-800 shadow-xl">
+            <a href="#accueil" class="block py-2 text-lg">Accueil</a>
+            <a href="#competences" class="block py-2 text-lg">Expertises</a>
+            <a href="#projets" class="block py-2 text-lg">Projets</a>
+            <a href="#contact" class="block py-2 text-lg font-bold">Contact</a>
+        </div>
+    </nav>
 
-    <h2>Liens professionnels</h2>
-    <ul>
-        <li><a href="#" target="_blank">Télécharger mon CV (PDF)</a></li>
-        <li><a href="https://github.com/" target="_blank">Mon GitHub</a></li>
-        <li><a href="https://www.kaggle.com/" target="_blank">Mon Kaggle</a></li>
-    </ul>
+    <!-- Hero Section -->
+    <section id="accueil" class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span>Disponible pour un stage à Salé</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                    Le Marketing <br> <span class="text-slate-400">par la Data.</span>
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-lg leading-relaxed">
+                    Étudiante en 2ème année à l'<strong>ESTS</strong>. Je transforme les tendances digitales en opportunités de croissance pour les entreprises locales.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg">Me contacter</a>
+                    <a href="#projets" class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center">
+                        Mes travaux <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <div class="profile-frame w-72 h-72 md:w-96 md:h-96">
+                    <div class="w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-slate-200 dark:bg-slate-800">
+                        <!-- REMPLACER CETTE URL PAR VOTRE PHOTO UNE FOIS EN LIGNE -->
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" 
+                             alt="Imane Bentaleb" 
+                             class="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-700 ease-in-out scale-110">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Logo Cloud / Education -->
+    <div class="py-12 border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap justify-around items-center gap-8 opacity-50 grayscale">
+                <span class="text-xl font-bold italic">ESTS Salé</span>
+                <span class="text-xl font-bold italic">DUT Marketing</span>
+                <span class="text-xl font-bold italic">Digital Strategy</span>
+                <span class="text-xl font-bold italic">SEO Specialist</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compétences -->
+    <section id="competences" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black mb-4">Expertises Techniques</h2>
+                <div class="h-1.5 w-20 bg-slate-400 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
+                    <div class="w-14 h-14 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-slate-900 transition-colors">
+                        <i class="fas fa-bullhorn text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Ads & Social Media</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Gestion de campagnes sponsorisées (Meta, Google) et création de calendriers éditoriaux engageants.</p>
+                </div>
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
+                    <div class="w-14 h-14 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-slate-900 transition-colors">
+                        <i class="fas fa-chart-pie text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Analyse de Données</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Utilisation d'outils analytics pour mesurer le ROI et optimiser les tunnels de conversion.</p>
+                </div>
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
+                    <div class="w-14 h-14 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-slate-900 transition-colors">
+                        <i class="fas fa-pen-nib text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Content Marketing</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Rédaction SEO, Copywriting et création visuelle adaptée à chaque plateforme digitale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="py-24 px-6 bg-slate-100 dark:bg-slate-900/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-black mb-2">Projets Récents</h2>
+                    <p class="text-slate-500">Sélection de mes travaux académiques et personnels</p>
+                </div>
+                <a href="#" class="hidden md:block text-sm font-bold border-b-2 border-slate-900 dark:border-white pb-1">Tout voir</a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="project-card group cursor-pointer">
+                    <div class="relative h-80 rounded-3xl overflow-hidden mb-6 bg-slate-300 dark:bg-slate-800">
+                        <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition-transform duration-500">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur text-slate-900 text-xs font-bold rounded-lg uppercase">Étude de Cas</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Audit SEO : E-commerce Maroc</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Analyse complète et recommandations stratégiques pour une boutique en ligne à Salé.</p>
+                </div>
+                <div class="project-card group cursor-pointer">
+                    <div class="relative h-80 rounded-3xl overflow-hidden mb-6 bg-slate-300 dark:bg-slate-800">
+                        <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition-transform duration-500">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur text-slate-900 text-xs font-bold rounded-lg uppercase">Social Media</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Campagne Instagram : Lancement Produit</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Planification et création de contenu pour une marque de cosmétique bio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto bg-slate-900 dark:bg-white rounded-[3rem] p-12 md:p-20 text-center text-white dark:text-slate-900 shadow-2xl overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-slate-800 dark:bg-slate-100 rounded-full -mr-32 -mt-32 opacity-20"></div>
+            
+            <h2 class="text-4xl md:text-5xl font-black mb-8 relative z-10">Travaillons <br> ensemble.</h2>
+            <p class="text-slate-400 dark:text-slate-500 mb-12 max-w-lg mx-auto relative z-10">Vous avez un projet ou une opportunité de stage ? Envoyez-moi un message, je réponds généralement en moins de 24h.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6 relative z-10">
+                <a href="mailto:imane.bentaleb@ests.ma" class="p-6 bg-slate-800 dark:bg-slate-50 rounded-2xl hover:scale-105 transition-transform">
+                    <i class="fas fa-envelope mb-4 text-2xl"></i>
+                    <div class="text-sm font-bold truncate">imane.bentaleb@ests.ma</div>
+                </a>
+                <a href="#" class="p-6 bg-slate-800 dark:bg-slate-50 rounded-2xl hover:scale-105 transition-transform">
+                    <i class="fab fa-linkedin mb-4 text-2xl"></i>
+                    <div class="text-sm font-bold">LinkedIn</div>
+                </a>
+                <a href="tel:+212600000000" class="p-6 bg-slate-800 dark:bg-slate-50 rounded-2xl hover:scale-105 transition-transform">
+                    <i class="fas fa-phone mb-4 text-2xl"></i>
+                    <div class="text-sm font-bold">+212 6 XX XX XX XX</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center bg-slate-50 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 border-t border-slate-200 dark:border-slate-800 pt-8">
+            <p class="text-slate-500 font-medium italic">"Le digital est le pont entre l'idée et le succès."</p>
+            <p class="text-slate-400 text-xs mt-4">© 2024 Imane Bentaleb — Conçu pour l'excellence à Salé.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
-
